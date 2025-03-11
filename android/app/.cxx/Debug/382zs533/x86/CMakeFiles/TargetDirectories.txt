@@ -1,0 +1,2 @@
+C:/Users/manu9/OneDrive/Documents/Flutter/vistiq/android/app/.cxx/Debug/382zs533/x86/CMakeFiles/edit_cache.dir
+C:/Users/manu9/OneDrive/Documents/Flutter/vistiq/android/app/.cxx/Debug/382zs533/x86/CMakeFiles/rebuild_cache.dir
