@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:vistiq/utils/formWidgets.dart';
 import 'package:vistiq/view/homeScreen.dart';
 
 class AddVisitorDone extends StatelessWidget {
@@ -32,32 +33,16 @@ class AddVisitorDone extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _buildTextButton(() {
+                buildTextButton(() {
                   Navigator.pop(context);
                 }, "Register a new visitor"),
-                _buildTextButton(() {
+                buildTextButton(() {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (_) => const Homescreen()));
                 }, "Back to home"),
               ],
             )
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildTextButton(Function()? onTap, String label) {
-    return TextButton(
-      onPressed: onTap,
-      child: SizedBox(
-        width: 100,
-        child: Text(
-          label,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            color: Color(0xff3661CD),
-          ),
         ),
       ),
     );

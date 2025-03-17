@@ -4,6 +4,7 @@ import 'package:vistiq/view/auth/login.dart';
 import 'package:vistiq/view/Intro%20Pages/intro1.dart';
 import 'package:vistiq/view/Intro%20Pages/intro2.dart';
 import 'package:vistiq/view/Intro%20Pages/intro3.dart';
+import 'package:vistiq/view/auth/loginGpt.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({super.key});
@@ -93,7 +94,7 @@ class _OnboardingState extends State<Onboarding> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (_) => const Login()));
+                                      builder: (_) => const LoginPage()));
                             },
                           )
                         : GestureDetector(

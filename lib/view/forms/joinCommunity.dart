@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:vistiq/utils/formWidgets.dart';
+import 'package:vistiq/view/mainPage.dart';
 
 class Joincommunity extends StatefulWidget {
   const Joincommunity({super.key});
@@ -25,7 +26,10 @@ class _JoincommunityState extends State<Joincommunity> {
           centerTitle: true,
           elevation: 50,
           leading: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => const BottomNav()));
+              },
               icon: const Icon(Icons.arrow_back_ios_new_rounded)),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),

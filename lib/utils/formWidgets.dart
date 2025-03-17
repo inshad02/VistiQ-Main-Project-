@@ -132,10 +132,10 @@ class DatePickerTextField extends StatefulWidget {
   final TextEditingController controller;
 
   const DatePickerTextField({
-    Key? key,
+    super.key,
     required this.title,
     required this.controller,
-  }) : super(key: key);
+  });
 
   @override
   _DatePickerTextFieldState createState() => _DatePickerTextFieldState();
@@ -188,10 +188,10 @@ class TimePickerTextField extends StatefulWidget {
   final TextEditingController controller;
 
   const TimePickerTextField({
-    Key? key,
+    super.key,
     required this.title,
     required this.controller,
-  }) : super(key: key);
+  });
 
   @override
   _TimePickerTextFieldState createState() => _TimePickerTextFieldState();
@@ -231,11 +231,27 @@ class _TimePickerTextFieldState extends State<TimePickerTextField> {
           decoration: InputDecoration(
             suffixIcon: IconButton(
                 onPressed: () => _selectTime(context),
-                icon: Icon(Icons.access_time)),
+                icon: const Icon(Icons.access_time)),
             hintText: 'Select time',
           ),
         ),
       ],
     );
   }
+}
+
+Widget buildTextButton(Function() OnTap, String label) {
+  return TextButton(
+    onPressed: OnTap,
+    child: SizedBox(
+      width: 150,
+      child: Text(
+        label,
+        textAlign: TextAlign.center,
+        style: const TextStyle(
+          color: Color(0xff3661CD),
+        ),
+      ),
+    ),
+  );
 }

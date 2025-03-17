@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:vistiq/utils/formWidgets.dart';
 import 'package:vistiq/view/homeScreen.dart';
 
 class RegisterPackageDone extends StatelessWidget {
@@ -32,30 +33,14 @@ class RegisterPackageDone extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _buildTextButton(() {}, "Register a new package"),
-                _buildTextButton(() {
+                buildTextButton(() {}, "Register a new package"),
+                buildTextButton(() {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (_) => const Homescreen()));
                 }, "Back to home"),
               ],
             )
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildTextButton(Function() onTap, String label) {
-    return TextButton(
-      onPressed: onTap,
-      child: SizedBox(
-        width: 100,
-        child: Text(
-          label,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            color: Color(0xff3661CD),
-          ),
         ),
       ),
     );

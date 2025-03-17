@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:vistiq/main.dart';
+import 'package:vistiq/view/mainPage.dart';
 
-class Logingpt extends StatelessWidget {
-  const Logingpt({super.key});
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class Logingpt extends StatelessWidget {
                       cacheHeight: 200),
                 ),
               ),
-              _buildLoginContainer(),
+              _buildLoginContainer(context),
             ],
           ),
         ],
@@ -35,7 +36,7 @@ class Logingpt extends StatelessWidget {
     );
   }
 
-  Widget _buildLoginContainer() {
+  Widget _buildLoginContainer(BuildContext context) {
     return Container(
       height: mq.height * 0.42,
       width: mq.width,
@@ -48,7 +49,7 @@ class Logingpt extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildText("Logingpt", 28, const Color(0Xff5731AB), "Poppins Bold"),
+            _buildText("Login", 28, const Color(0Xff5731AB), "Poppins Bold"),
             _buildText("Enter your valid mobile number", 12,
                 const Color(0xff969191), "Poppins Medium",
                 top: 12),
@@ -66,7 +67,7 @@ class Logingpt extends StatelessWidget {
                 onChanged: (phone) => print(phone.completeNumber),
               ),
             ),
-            _buildButton(),
+            _buildButton(context),
             _buildFooter(),
           ],
         ),
@@ -83,11 +84,14 @@ class Logingpt extends StatelessWidget {
     );
   }
 
-  Widget _buildButton() {
+  Widget _buildButton(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 16),
       child: MaterialButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (_) => const BottomNav()));
+        },
         color: const Color(0Xff5731AB),
         height: 56,
         minWidth: 344,
@@ -118,7 +122,7 @@ class Logingpt extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-        fontSize: 12,
+        fontSize: 10,
         color: isBold ? Colors.black : const Color(0xff969191),
         fontFamily: isBold ? "Poppins Bold" : "Poppins Semi Bold",
       ),

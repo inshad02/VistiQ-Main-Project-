@@ -1,8 +1,13 @@
+import 'dart:io';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:vistiq/view/forms/addFamily.dart';
 import 'package:vistiq/view/forms/addVisitor.dart';
+import 'package:vistiq/view/forms/complaints.dart';
+import 'package:vistiq/view/forms/packageReg.dart';
+import 'package:vistiq/view/Directory.dart';
 
 Widget appBar() {
   return Padding(
@@ -45,9 +50,9 @@ Widget flatDetails() {
 
 Widget ads() {
   final imagePaths = [
-    "assets/images/PAckage.jpg",
-    "assets/images/Visitor.jpg",
-    "assets/images/Community.jpg"
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPy6FcmILTTRa0tZnNKf54n_vFyEKbwrrACg&s",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPy6FcmILTTRa0tZnNKf54n_vFyEKbwrrACg&s",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPy6FcmILTTRa0tZnNKf54n_vFyEKbwrrACg&s"
   ];
 
   final myItems = List.generate(
@@ -58,7 +63,7 @@ Widget ads() {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               image: DecorationImage(
-                image: AssetImage(imagePaths[index]),
+                image: NetworkImage(imagePaths[index]),
                 fit: BoxFit.cover,
               ),
             ),
@@ -195,8 +200,10 @@ Widget services(BuildContext context) {
                   MaterialPageRoute(builder: (_) => const AddVisitorForm()));
             }, "assets/icons/visitor.png", "Add Visitor"),
             const Spacer(),
-            serviceButtons(
-                () {}, "assets/icons/truck-box.png", "Register Package"),
+            serviceButtons(() {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => const PackageRegForm()));
+            }, "assets/icons/truck-box.png", "Register Package"),
             const Spacer(),
             serviceButtons(() {},
                 "assets/icons/megaphone-announcement-leader.png", "Updates"),
@@ -204,12 +211,17 @@ Widget services(BuildContext context) {
         ),
         Row(
           children: [
-            serviceButtons(() {}, "assets/icons/address-book.png", "Directory"),
+            serviceButtons(() {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => Directory()));
+            }, "assets/icons/address-book.png", "Directory"),
             const Spacer(),
             serviceButtons(() {}, "assets/icons/vote.png", "Voting"),
             const Spacer(),
-            serviceButtons(() {}, "assets/icons/satisfaction-bar.png",
-                "Complaints & feedbacks"),
+            serviceButtons(() {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => const ComplaintsForm()));
+            }, "assets/icons/satisfaction-bar.png", "Complaints & feedbacks"),
           ],
         )
       ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:vistiq/utils/formWidgets.dart';
 import 'package:vistiq/view/homeScreen.dart';
 
 class FeedbackDone extends StatelessWidget {
@@ -28,30 +29,14 @@ class FeedbackDone extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                _buildTextButton(() {}, "Register a new feedback/complaint"),
-                _buildTextButton(() {
+                buildTextButton(() {}, "Register a new feedback/complaint"),
+                buildTextButton(() {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (_) => const Homescreen()));
                 }, "Back to home"),
               ],
             )
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildTextButton(Function() OnTap, String label) {
-    return TextButton(
-      onPressed: OnTap,
-      child: SizedBox(
-        width: 150,
-        child: Text(
-          label,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            color: Color(0xff3661CD),
-          ),
         ),
       ),
     );
